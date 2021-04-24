@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: hidden;
+}
+
+#header {
+    height: 5vh;
+}
+
+#main {
+    overflow: scroll;
+    height: 95vh;
+}
