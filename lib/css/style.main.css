@@ -1,0 +1,22 @@
+body {
+    background-color: #181818;
+
+    color: #797979;
+}
+
+img {
+    width: 100%;
+}
+
+h2, h3 {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+#footer {
+}
