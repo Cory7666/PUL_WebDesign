@@ -1,0 +1,35 @@
+#footer {
+    border-top: #797979 solid 3px;
+    margin: 0;
+}
+
+#footer .footer-minimal {
+    display: none;
+}
+#footer .footer-default {
+    display: block;
+}
+
+#footer hr {
+    display: inline-block;
+    height: 3px !important;
+    margin-top: 15px !important;
+}
+
+#footer h3 {
+    font-size: 110%;
+    color: #888;
+    font-weight: bold;
+}
+
+@media (max-width: 992px) {
+    #footer .footer-minimal {
+        display: block;
+    }
+    #footer .footer-default {
+        display: none;
+    }
+    .footer-minimal.col {
+        display: flex;
+    }
+}

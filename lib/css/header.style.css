@@ -1,0 +1,48 @@
+#header {
+    text-align: center;
+    font-size: 150%;
+    text-shadow: black 0 0 5px;
+    
+    border-bottom: 3px #797979 solid;
+}
+
+#header .brand {
+    text-align: left;
+}
+
+#header .cart {
+    text-align: right;
+}
+
+#header .navbar-default > div:nth-child(2) {
+     background: rgb(139,16,223);
+     background: linear-gradient(0deg, rgba(139,16,223,1) 0%, rgba(0,212,255,0) 100%); 
+}
+
+#header .navbar-default > div:nth-child(3) {
+    background: rgb(3,218,195);
+    background: linear-gradient(0deg, rgba(3,218,195,1) 0%, rgba(0,212,255,0) 100%); 
+}
+
+#header .navbar-default > div:nth-child(4) {
+    background: rgb(255,250,4);
+    background: linear-gradient(0deg, rgba(255,250,4,1) 0%, rgba(0,212,255,0) 100%); 
+}
+
+.navbar-default, .navbar-minimal {
+    margin: 0;
+}
+
+.navbar-minimal {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .navbar-minimal {
+        display: flex;
+    }
+
+    .navbar-default {
+        display: none;
+    }
+}
