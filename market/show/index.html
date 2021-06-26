@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../lib/css/reset.css" />
+
+    <!-- Иконки сайта -->
+    <link rel="icon" href="../../lib/img/brand/x16.png"  sizes="16x16"   type="image/png" />
+    <link rel="icon" href="../../lib/img/brand/x32.png"  sizes="32x32"   type="image/png" />
+    <link rel="icon" href="../../lib/img/brand/x64.png"  sizes="64x64"   type="image/png" />
+    <link rel="icon" href="../../lib/img/brand/x128.png" sizes="128x128" type="image/png" />
+    <link rel="icon" href="../../lib/img/brand/favicon.brand.svg"        type="image/svg+xml" />
+
+    <!-- BOOTSTRAP v5.0 -->
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css" />
+    <script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Собственные стили -->
+    <link rel="stylesheet" href="../../lib/css/style.main.css"   />
+    <link rel="stylesheet" href="../../lib/css/header.style.css" />
+    <link rel="stylesheet" href="../../lib/css/footer.style.css" />
+    <link rel="stylesheet" href="../../lib/css/market/main.css" />
+    <link rel="stylesheet" href="../../lib/css/market/show/main.css" />
+
+    <title>Подробнее... | UPGRADE</title>
+
+    <script src="../../lib/scripts/load_data.js"></script>
+    <script>
+        var s = "";
+        document.addEventListener("DOMContentLoaded", () => {
+            var link_v = document.querySelector("#content div:first-child");
+
+            var id = getUrlVars()["id"];
+
+            if (id)
+                for (let i = 0; i < DATABASE.length; i++)
+                {
+
+                    if (DATABASE[i]["id"] == id)
+                    {
+                        link_v.innerHTML = "";
+
+                        s += `<div id="item-imgs" class="col-12 col-xl-5">`;
+
+                        DATABASE[i]["images"].forEach((path) => {
+                            s += `
+                                <img src="../../goods/${path}" alt="картинка" class="item-image" />
+                            `;
+                        });
+
+                        s += `
+                        </div>
+                        <div id="item-spec" class="col" style="border-left: #797979 solid 3px;">
+                        `;
+
+                        if (DATABASE[i]["brand"] && DATABASE[i]["model"])
+                            s += `
+                                <div id="item-desc-name">
+                                    <span>Название: </span>
+                                    <span class="item-name">
+                                        <span class="item-brand brend-${DATABASE[i]["brand"]}">
+                                            ${DATABASE[i]["brand"]}
+                                        </span> <span class="item-model">
+                                            ${DATABASE[i]["model"]}
+                                        </span>
+                                    </span>
+                                </div>
+                            `;
+                        
+                        if (DATABASE[i]["spec"]["cpu"])
+                            s += `
+                                <div id="item-desc-spec-cpu">
+                                    <span>Процессор: </span>
+                                    <span class="item-spec-cpu">
+                                        <span class="item-spec-cpu-brand brand-${DATABASE[i]["spec"]["cpu"][0]}">
+                                            ${DATABASE[i]["spec"]["cpu"][0]}
+                                        </span> <span class="item-spec-cpu-model">
+                                            ${DATABASE[i]["spec"]["cpu"][1]}
+                                        </span>
+                                    </span>
+                                </div>
+                            `;
+                        
+                        if (DATABASE[i]["spec"]["cooler"])
+                            s += `
+                                <div id="item-desc-spec-cooler">
+                                    <span>Охлаждение: </span>
+                                    <span class="item-spec-cooler">
+                                        <span class="item-spec-cooler-brand brand-${DATABASE[i]["spec"]["cooler"][0]}">
+                                            ${DATABASE[i]["spec"]["cooler"][0]}
+                                        </span> <span class="item-spec-cooler-model">
+                                            ${DATABASE[i]["spec"]["cooler"][0]}
+                                        </span>
+                                    </span>
+                                </div>
+                            `;
+                        
+                        if (DATABASE[i]["spec"]["cooler"])
+                            s += `
+                                <div id="item-desc-spec-ram">
+                                    <span>Оперативная память: </span>
+                                    <span class="item-spec-ram"></span>
+                                </div>
+                            `;
+                        
+                        if (DATABASE[i]["spec"]["motherboard"])
+                            s += `
+                                <div id="item-desc-spec-motherboard">
+                                    <span>Материнская плата: </span>
+                                    <span class="item-spec-motherboard">
+                                        <span class="item-spec-motherboard-brand brand-${DATABASE[i]["spec"]["motherboard"][0]}">
+                                            ${DATABASE[i]["spec"]["motherboard"][0]}
+                                        </span> <span class="item-spec-motherboard-model">
+                                            ${DATABASE[i]["spec"]["motherboard"][1]}
+                                        </span>
+                                    </span>
+                                </div>
+                            `;
+                        
+                        if (DATABASE[i]["spec"]["videocard"])
+                            s += `
+                                <div id="item-desc-spec-videocard">
+                                    <span>Видеокарта: </span>
+                                    <span class="item-spec-videocard">
+                                        <span class="item-spec-videocard-brand  brand-${DATABASE[i]["spec"]["videocard"][0]}">
+                                            ${DATABASE[i]["spec"]["videocard"][0]}
+                                        </span> <span class="item-spec-videocard-model">
+                                            ${DATABASE[i]["spec"]["videocard"][1]}
+                                        </span>
+                                    </span>
+                                </div>
+                            `;
+                        
+                        if (DATABASE[i]["spec"]["storage"])
+                        {
+                            if (Array.isArray(DATABASE[i]["spec"]["storage"]))
+                            {
+                                s += `
+                                <div id="item-desc-spec-storage">
+                                    <div>Дополнительное хранилище:</div>
+                                    <div class="item-spec-storage">
+                                `;
+
+                                DATABASE[i]["spec"]["storage"].forEach((elem) => {
+                                    s += `<div><span class="item-spec-storage-${elem[0]}">${elem[1]}</span> <span class="item-spec-storage-size">${elem[2]}</span></div>`;
+                                });
+
+                                s += `
+                                    </div>
+                                </div>
+                                `;
+                            } else {
+                                s += `
+                                <div id="item-desc-spec-storage">
+                                    <div>Внутреннее хранилище: </div>
+                                    <div class="item-spec-storage">
+                                        <span class="item-spec-storage-size">${DATABASE[i]["spec"]["storage"]}</span>
+                                    </div>
+                                </div>
+                                `;
+                            }
+                        }
+                        
+                        if (DATABASE[i]["spec"]["OC"])
+                            s += `
+                            <div id="item-desc-spec-OC">
+                                <span>Операционная система: </span>
+                                <span class="item-spec-OC">
+                                    ${DATABASE[i]["spec"]["OC"]}
+                                </span>
+                            </div>
+                            `;
+                        
+                        if (DATABASE[i]["spec"]["color"])
+                            s += `
+                            <div id="item-desc-spec-color">
+                                <span>Цвет: </span>
+                                <span class="item-spec-color">
+                                    ${DATABASE[i]["spec"]["color"]}
+                                </span>
+                            </div>
+                            `;
+
+                        if (DATABASE[i]["spec"]["material"])
+                            s += `
+                            <div id="item-desc-spec-material">
+                                <span>Материал/ы: </span>
+                                <span class="item-spec-material">
+                                    ${DATABASE[i]["spec"]["material"]}
+                                </span>
+                            </div>
+                            `;
+
+                        if (DATABASE[i]["spec"]["sizes"])
+                            s += `
+                            <div id="item-desc-spec-sizes">
+                                <span>Размеры: </span>
+                                <span class="item-spec-sizes">
+                                    <span class="item-spec-sizes-height">${DATABASE[i]["spec"]["sizes"][0]}</span>x<span class="item-spec-sizes-width">${DATABASE[i]["spec"]["sizes"][1]}</span>x<span class="item-spec-sizes-depth">${DATABASE[i]["spec"]["sizes"][2]}</span>
+                                </span>
+                            </div>
+                            `;
+
+                        if (DATABASE[i]["spec"]["power"])
+                            s += `
+                            <div id="item-desc-spec-power">
+                                <span>Блок питания: </span>
+                                <span class="item-spec-power">
+                                    <span class="item-spec-power-brand brand-${DATABASE[i]["spec"]["power"][0]}">
+                                        ${DATABASE[i]["spec"]["power"][0]}
+                                    </span> <span class="item-spec-power-model">
+                                        ${DATABASE[i]["spec"]["power"][1]}
+                                    </span>
+                                </span>
+                            </div>
+                            `;
+
+                        if (DATABASE[i]["spec"]["accum"])
+                            s += `
+                            <div id="item-desc-spec-accum">
+                                <span>Аккумулятор: </span>
+                                <span class="item-spec-accum-${ (DATABASE[i]["type"] == "smartphone") ? ("a") : ("w") }">
+                                    ${DATABASE[i]["spec"]["accum"]}
+                                </span>
+                            </div>
+                            `;
+                        
+                        s += `
+                        <div>
+                            <span id="item-desc-price" class="item-price">${DATABASE[i]["price"]}</span>
+                            <button class="item-buy">Добавить +</button>
+                        </div>
+                    </div>
+                        `;
+
+                        s += `
+                        <div id="item-desc-full" class="col-12" style="border-top: #797979 solid 3px;">
+                            <div>Описание</div>
+                            <p>${DATABASE[i]["desc"]}</p>
+                        </div>
+                        `;
+
+                     break;   
+                    }
+                }
+
+                document.querySelector("#content div:first-child").innerHTML = s;
+        });
+    </script>
+
+    <script>
+        /*document.addEventListener("DOMCOntentLoaded", () => {
+            document.querySelectorAll("img.item-image").forEach((elem) => {
+                elem.addEventListener()
+            });
+        });*/
+    </script>
+</head>
+<body>
+    <div class="container-fluid p-0 m-0">
+        <div id="header" class="row container-fluid p-0 m-0">
+            <div class="col navbar-minimal row">
+                <div class="col-2 brand">
+                    <a href="../../index.html"><img src="../../lib/img/brand/only-head.brand.svg" alt="" height="30px"/></a>
+                </div>
+                <a href="../../market/index.html" class="col"><div><img src="../../lib/img/header_n_footer/menu.svg" alt="Кат"></div></a>
+                <a href="../../configurator/index.html" class="col"><div><img src="../../lib/img/header_n_footer/settings.svg" alt="Конф"></div></a>
+                <a href="../../search/index.html" class="col"><div><img src="../../lib/img/header_n_footer/loupe.svg" alt="П"></div></a>
+                <div class="col-1 cart">
+                    <a href="../../cart/index.html"><img src="../lib/img/icons/cart.svg" alt="" height="100%"></a>
+                </div>../
+            </div>
+
+            <div class="col navbar-default row">
+                <div class="col-3 brand">
+                    <a href="../../index.html"><img src="../../lib/img/brand/full.brand.svg" alt="" height="50px"/></a>
+                </div>
+                <a href="../../market/index.html" class="col"><div>Каталог</div></a>
+                <a href="../../configurator/index.html" class="col"><div>Конфигуратор</div></a>
+                <a href="../../search/index.html" class="col"><div>Поиск</div></a>
+                <div class="col-1 cart">
+                    <a href="../cart/index.html"><img src="../../lib/img/icons/cart.svg" alt="" height="100%"></a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mt-2" id="content">
+            
+            <div class="row">
+                
+            </div>
+            
+        </div>
+        <div id="footer" class="row row-cols-1 row-cols-lg-3">
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>Магазин</h3></div>
+                <div class="col"><a href="../../market/catalog/index.html?type=smartphone">Смартфоны</a></div>
+                <div class="col"><a href="../../market/catalog/index.html?type=notebook">Ноутбуки</a></div>
+                <div class="col"><a href="../../market/catalog/index.html?type=computer">Персональные компьютеры</a></div>
+            </div>
+            <hr class="footer-minimal" />
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>О персональных компьютерах</h3></div>
+                <div class="col"><a href="../../configurator/index.html">Конфигуратор</a></div>
+                <div class="col"><a href="../../market/catalog/index.html?type=computer">Готовые решения</a></div>
+                <div class="col"><a href="../../market/catalog/index.html?type=accessories">Аксессуары</a></div>
+            </div>
+            <hr class="footer-minimal" />
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>Информация</h3></div>
+                <div class="col"><a href="../../events/index.html">Акции</a></div>
+                <div class="col"><a href="../../about/index.html">О нас</a></div>
+                <div class="col"><a target="_blank" href="https://github.com/Cory7666/web-design" class="brand-github">GitHUB</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

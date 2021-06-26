@@ -1,0 +1,110 @@
+#content img
+{
+    width: 80%;
+}
+
+#content > div > div:nth-child(2) > div
+{
+    padding: 0 10px 0 10px;
+    text-align: center;
+}
+
+#id_link > div:nth-child(1) > img:nth-child(1)
+{
+    width: 70%;
+}
+
+#id_link > div:nth-child(2) > div:first-child
+{
+    font-weight: bold;
+    font-size: 180%;
+}
+
+#id_link > div:nth-child(2) > div > *:first-child
+{
+    font-weight: bold;
+    font-size: 130%;
+}
+
+
+
+
+
+
+#id_link + div > * > *:first-child
+{
+    color: #fff;
+    font-size: 30px;
+}
+
+
+
+
+
+
+
+#id_link + div > * > *:not(:first-child)
+{
+    font-size: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+#id_link + div > div
+{
+    box-shadow: inset 0 0 70px -120px rgba(3,218,195,1);
+    transition: box-shadow 0.8s;
+}
+
+#id_link + div > div:hover
+{
+    box-shadow: inset 0 -165px 70px -120px rgba(3,218,195,1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#item-desc-price
+{
+    font-size: 250% !important;
+    color: #03DAC3;
+}
+
+
+#content button.item-buy
+{
+    font-size: 180% !important;
+    background: none;
+    border: solid rgba(255, 255, 255, 0.1) 1px;
+    border-radius: 3px;
+    color: #aaa;
+    float: right;
+
+    padding: 10px 30px 10px 30px;
+}
+
+#content button.item-buy
+{
+    box-shadow: inset 0 0 70px -120px rgba(3,218,195,1);
+    transition: box-shadow 0.4s;
+}
+#content button.item-buy:hover {
+    box-shadow: inset 0 -105px 70px -120px rgba(3,218,195,1);
+}

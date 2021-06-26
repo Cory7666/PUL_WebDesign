@@ -5,50 +5,113 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/lib/css/reset.css" />
+    <link rel="stylesheet" href="../lib/css/reset.css" />
 
     <!-- Иконки сайта -->
-    <link rel="icon" href="/lib/img/brand/x16.png"  sizes="16x16"   type="image/png" />
-    <link rel="icon" href="/lib/img/brand/x32.png"  sizes="32x32"   type="image/png" />
-    <link rel="icon" href="/lib/img/brand/x64.png"  sizes="64x64"   type="image/png" />
-    <link rel="icon" href="/lib/img/brand/x128.png" sizes="128x128" type="image/png" />
-    <link rel="icon" href="/lib/img/brand/favicon.brand.svg"        type="image/svg+xml" />
+    <link rel="icon" href="../lib/img/brand/x16.png"  sizes="16x16"   type="image/png" />
+    <link rel="icon" href="../lib/img/brand/x32.png"  sizes="32x32"   type="image/png" />
+    <link rel="icon" href="../lib/img/brand/x64.png"  sizes="64x64"   type="image/png" />
+    <link rel="icon" href="../lib/img/brand/x128.png" sizes="128x128" type="image/png" />
+    <link rel="icon" href="../lib/img/brand/favicon.brand.svg"        type="image/svg+xml" />
 
     <!-- BOOTSTRAP v5.0 -->
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
-    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Собственные стили -->
-    <link rel="stylesheet" href="/lib/css/style.main.css"   />
-    <link rel="stylesheet" href="/lib/css/header.style.css" />
-    <link rel="stylesheet" href="/lib/css/footer.style.css" />
+    <link rel="stylesheet" href="../lib/css/style.main.css"   />
+    <link rel="stylesheet" href="../lib/css/header.style.css" />
+    <link rel="stylesheet" href="../lib/css/footer.style.css" />
+    <link rel="stylesheet" href="../lib/css/market/main.css"  />
 
-    <title>Наименование страницы</title>
+    <title>Магазин | UPGRADE</title>
+
+    <script src="../lib/scripts/load_data.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            var count_s = 0,
+                count_n = 0,
+                count_c = 0;
+            
+            DATABASE.forEach((elem) => {
+                switch (elem["type"])
+                {
+                    case "smartphone":
+                        if (count_s < 3)
+                        {
+                            count_s++;
+
+                            document.querySelector("#market-smartphones > div:first-child").innerHTML += `
+                            <a href="../market/show/index.html?id=${elem["id"]}" class="col item-smartphone">
+                                <div class="item-name">${(elem["brand"] && elem["model"]) ? (elem["brand"] + " " + elem["model"]) : ("н/д")}</div>
+                                <img class="item-img" src="../goods/${elem["images"][0]}" alt="картинка" />
+                                <div class="item-price">${(elem["price"]) ? (elem["price"]) : ("н/д")}</div>
+                                <div class="item-desc-short"><span class="item-cpu ${(elem["spec"]["cpu"][0]) ? ("brand-" + elem["spec"]["cpu"][0]) : ("")}">${(elem["spec"]["cpu"][0]) ? (elem["spec"]["cpu"][0] + " " + elem["spec"]["cpu"][1]) : ("н/д")}</span> | <span class="item-spec-ram">${(elem["spec"]["ram"]) ? (elem["spec"]["ram"]) : ("н/д")}</span> | <span class="item-spec-accum">${(elem["spec"]["accum"]) ? (elem["spec"]["accum"]) : ("н/д")}</span></div>
+                            </a>
+                            `;
+                        }
+                        break;
+                    
+                    case "notebook":
+                        if (count_n < 3)
+                        {
+                            count_n++;
+
+                            document.querySelector("#market-notebooks > div:first-child").innerHTML += `
+                            <a href="../market/show/index.html?id=${elem["id"]}" class="col item-notebook">
+                                <div class="item-name">${(elem["brand"] && elem["model"]) ? (elem["brand"] + " " + elem["model"]) : ("н/д")}</div>
+                                <img class="item-img" src="../goods/${elem["images"][0]}" alt="картинка" />
+                                <div class="item-price">${(elem["price"]) ? (elem["price"]) : ("н/д")}</div>
+                                <div class="item-desc-short"><span class="item-cpu ${(elem["spec"]["cpu"][0]) ? ("brand-" + elem["spec"]["cpu"][0]) : ("")}">${(elem["spec"]["cpu"][0]) ? (elem["spec"]["cpu"][0] + " " + elem["spec"]["cpu"][1]) : ("н/д")}</span> | <span class="item-spec-ram">${(elem["spec"]["ram"]) ? (elem["spec"]["ram"]) : ("н/д")}</span> | <span class="item-spec-accum">${(elem["spec"]["accum"]) ? (elem["spec"]["accum"]) : ("н/д")}</span></div>
+                            </a>
+                            `;
+                        }
+                        break;
+                        
+                    case "computer":
+                        if (count_c < 3)
+                        {
+                            count_c++;
+
+                            document.querySelector("#market-computers > div:first-child").innerHTML += `
+                            <a href="../market/show/index.html?id=${elem["id"]}" class="col item-computer">
+                                <div class="item-name">${(elem["brand"] && elem["model"]) ? (elem["brand"] + " " + elem["model"]) : ("н/д")}</div>
+                                <img class="item-img" src="../goods/${elem["images"][0]}" alt="картинка" />
+                                <div class="item-price">${(elem["price"]) ? (elem["price"]) : ("н/д")}</div>
+                                <div class="item-desc-short"><span class="item-cpu ${(elem["spec"]["cpu"][0]) ? ("brand-" + elem["spec"]["cpu"][0]) : ("")}">${(elem["spec"]["cpu"][0]) ? (elem["spec"]["cpu"][0] + " " + elem["spec"]["cpu"][1]) : ("н/д")}</span> | <span class="item-spec-ram">${(elem["spec"]["ram"]) ? (elem["spec"]["ram"]) : ("н/д")}</span> | <span class="item-spec-videocard ${(elem["spec"]["videocard"][0]) ? ("brand-" + elem["spec"]["videocard"][0]) : ("")}">${(elem["spec"]["videocard"][1]) ? (elem["spec"]["videocard"][1]) : ("н/д")}</span></div>
+                            </a>
+                            `;
+                        }
+                        break;
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container-fluid p-0 m-0">
         <div id="header" class="row container-fluid p-0 m-0">
             <div class="col navbar-minimal row">
                 <div class="col-2 brand">
-                    <a href="/"><img src="/lib/img/brand/only-head.brand.svg" alt="" height="30px"/></a>
+                    <a href="../index.html"><img src="../lib/img/brand/only-head.brand.svg" alt="" height="30px"/></a>
                 </div>
-                <div class="col"><a href="/market/">Кат</a></div>
-                <div class="col"><a href="/configurator">Конф</a></div>
-                <div class="col"><a href="/search">П</a></div>
+                <a href="../market/index.html" class="col"><div><img src="../lib/img/header_n_footer/menu.svg" alt="Кат"></div></a>
+                <a href="../configurator/index.html" class="col"><div><img src="../lib/img/header_n_footer/settings.svg" alt="Конф"></div></a>
+                <a href="../search/index.html" class="col"><div><img src="../lib/img/header_n_footer/loupe.svg" alt="П"></div></a>
                 <div class="col-1 cart">
-                    <img src="/lib/img/icons/cart.svg" alt="" height="100%">
+                    <a href="../cart/index.html"><img src="../lib/img/icons/cart.svg" alt="" height="100%"></a>
                 </div>
             </div>
 
             <div class="col navbar-default row">
                 <div class="col-3 brand">
-                    <a href="/"><img src="/lib/img/brand/full.brand.svg" alt="" height="50px"/></a>
+                    <a href="../index.html"><img src="../lib/img/brand/full.brand.svg" alt="" height="50px"/></a>
                 </div>
-                <div class="col"><a href="/market/">Категории</a></div>
-                <div class="col"><a href="/configurator">Конфигуратор</a></div>
-                <div class="col"><a href="/search">Поиск</a></div>
+                <a href="../market/index.html" class="col"><div>Каталог</div></a>
+                <a href="../configurator/index.html" class="col"><div>Конфигуратор</div></a>
+                <a href="../search/index.html" class="col"><div>Поиск</div></a>
                 <div class="col-1 cart">
-                    <img src="/lib/img/icons/cart.svg" alt="" height="100%">
+                    <a href="../cart/index.html"><img src="../lib/img/icons/cart.svg" alt="" height="100%"></a>
                 </div>
             </div>
         </div>
@@ -62,13 +125,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/lib/events/event-1.jpg" alt="" width="100%">
+                        <img src="../lib/events/event-1.jpg" alt="" width="100%">
                     </div>
                     <div class="carousel-item">
-                        <img src="/lib/events/event-2.jpg" alt="" width="100%">
+                        <img src="../lib/events/event-2.jpg" alt="" width="100%">
                     </div>
                     <div class="carousel-item">
-                        <img src="/lib/events/event-3.jpg" alt="" width="100%">
+                        <img src="../lib/events/event-3.jpg" alt="" width="100%">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselEvents" data-bs-slide="prev">
@@ -83,28 +146,78 @@
             
 
 
+
+            <div id="market-smartphones">
+                <div class="row row-cols-3">
+                    
+                </div>
+                <div>
+                    <img src="../lib/img/market/smartphones.svg" alt="Смартфоны">
+                        
+                    <div>У нас большой выбор смартфонов!</div>
+                    <div><a href="./catalog/index.html?type=smartphone">Посмотреть каталог -&gt;</a></div>
+                </div>
+            </div>
+
+
+
+            <div id="market-notebooks">
+                <div class="row row-cols-3">
+                    
+                </div>
+                <div>
+                    <img src="../lib/img/market/laptop.svg" alt="Ноутбук">
+
+                    <div>У нас большой выбор ноутбуков!</div>
+                    <div><a href="./catalog/index.html?type=notebook">Посмотреть каталог -&gt;</a></div>
+                </div>
+            </div>
+            
+            
+            
+            <div id="market-computers">
+                <div class="row row-cols-3">
+                    
+                </div>
+                <div>
+                    <img src="../lib/img/market/computer.svg" alt="Компьютеры">
+
+                    <div>У нас большой выбор компьютеров!</div>
+                    <div><a href="./catalog/index.html?type=computer">Посмотреть каталог -&gt;</a></div>
+                </div>
+                <div>
+                    <img src="../lib/img/market/computer.svg" alt="Компьютеры">
+
+                    <div>А ещё вы можете собрать свой ПК!</div>
+                    <div><a href="../configurator/index.html">Перейти в Конфигуратор -&gt;</a></div>
+                </div>
+            </div>
+
+
+
+
             
         </div>
         <div id="footer" class="row row-cols-1 row-cols-lg-3">
             <div class="col row row-cols-1">
                 <div class="col footer-minimal"><h3>Магазин</h3></div>
-                <div class="col"><a href="/market/smartphones">Смартфоны</a></div>
-                <div class="col"><a href="/market/notebooks">Ноутбуки</a></div>
-                <div class="col"><a href="/market/computers">Персональные компьютеры</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=smartphone">Смартфоны</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=notebook">Ноутбуки</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=computer">Персональные компьютеры</a></div>
             </div>
             <hr class="footer-minimal" />
             <div class="col row row-cols-1">
                 <div class="col footer-minimal"><h3>О персональных компьютерах</h3></div>
-                <div class="col"><a href="/configurator">Конфигуратор</a></div>
-                <div class="col"><a href="/market/computers">Готовые решения</a></div>
-                <div class="col"><a href="/market/accessories">Аксессуары</a></div>
+                <div class="col"><a href="../configurator/index.html">Конфигуратор</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=computer">Готовые решения</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=accessories">Аксессуары</a></div>
             </div>
             <hr class="footer-minimal" />
             <div class="col row row-cols-1">
                 <div class="col footer-minimal"><h3>Информация</h3></div>
-                <div class="col"><a href="/events">Акции</a></div>
-                <div class="col"><a href="/about">О нас</a></div>
-                <div class="col"><a target="_blank" href="https://github.com/Cory7666/web-design">GitHUB</a></div>
+                <div class="col"><a href="../events/index.html">Акции</a></div>
+                <div class="col"><a href="../about/index.html">О нас</a></div>
+                <div class="col"><a target="_blank" href="https://github.com/Cory7666/web-design" class="brand-github">GitHUB</a></div>
             </div>
         </div>
     </div>

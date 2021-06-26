@@ -1,0 +1,54 @@
+#categories,
+#computers-categories
+{
+    font-size: 150%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#categories img,
+#computers-categories img
+{
+    margin-top: 10px;
+
+    max-width: 70%;
+    max-height: 300px;
+}
+
+#computers-categories
+{
+    margin-bottom: 40px;
+}
+
+.horizontal-text
+{
+    margin: 20px 0 30px 0; padding: 10px 0 10px 0;
+
+    border-top: 3px solid #797979;
+    border-bottom: 3px solid #797979;
+
+    font-size: 200%;
+
+    text-align: center;
+}
+
+
+
+
+@media (max-width: 992px)
+{
+    #categories,
+    #computers-categories
+    {
+        font-size: 110%;
+    }
+
+    #categories img,
+    #computers-categories img
+    {
+        margin-top: 5px;
+
+        max-width: 90%;
+        max-height: 300px;
+    }
+}

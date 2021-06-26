@@ -1,0 +1,111 @@
+[
+    {
+        "id": -1,
+        "type": "smartphone",
+        "mod": "",
+        "brand": "",
+        "model": "",
+        "price": 0,
+        "images": [
+
+        ],
+        "desc": "",
+        "spec": {
+            "cpu": [
+                "", ""
+            ],
+            "ram": "",
+            "storage": "",
+            "year": 2020,
+            "color": "",
+            "screen": "",
+            "material": "",
+            "OC": "",
+            "camera": "",
+            "sizes": [
+
+            ],
+            "accum": 0,
+            "IP": "",
+            "weight": 0
+        }
+    },
+
+    {
+        "id": -2,
+        "type": "notebook",
+        "mod": "",
+        "brand": "",
+        "model": "",
+        "price": 0,
+        "images": [
+
+        ],
+        "desc": "",
+        "spec": {
+            "cpu": [
+                "", ""
+            ],
+            "ram": "",
+            "videocard": [
+                "", ""
+            ],
+            "storage": [
+                ["", "", 256]
+            ],
+            "year": 2020,
+            "color": "",
+            "screen": "",
+            "material": "",
+            "OC": "",
+            "camera": "",
+            "sizes": [
+
+            ],
+            "accum": 0,
+            "weight": 0
+        }
+    },
+
+    {
+        "id": -3,
+        "type": "computer",
+        "mod": "",
+        "brand": "",
+        "model": "",
+        "price": 0,
+        "images": [
+
+        ],
+        "desc": "",
+        "spec": {
+            "cpu": [
+                "", ""
+            ],
+            "motherboard": [
+                "", ""
+            ],
+            "ram": "",
+            "videocard": [
+                "", ""
+            ],
+            "storage": [
+                ["", "", 256]
+            ],
+            "color": "",
+            "OC": "",
+            "sizes": [
+
+            ],
+            "cooler": [
+                "", ""
+            ],
+            "power": [
+                "", ""
+            ],
+            "case": [
+                "", ""
+            ]
+        }
+    }
+]

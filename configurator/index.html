@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../lib/css/reset.css" />
+
+    <!-- Иконки сайта -->
+    <link rel="icon" href="../lib/img/brand/x16.png"  sizes="16x16"   type="image/png" />
+    <link rel="icon" href="../lib/img/brand/x32.png"  sizes="32x32"   type="image/png" />
+    <link rel="icon" href="../lib/img/brand/x64.png"  sizes="64x64"   type="image/png" />
+    <link rel="icon" href="../lib/img/brand/x128.png" sizes="128x128" type="image/png" />
+    <link rel="icon" href="../lib/img/brand/favicon.brand.svg"        type="image/svg+xml" />
+
+    <!-- BOOTSTRAP v5.0 -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Собственные стили -->
+    <link rel="stylesheet" href="../lib/css/style.main.css"   />
+    <link rel="stylesheet" href="../lib/css/header.style.css" />
+    <link rel="stylesheet" href="../lib/css/footer.style.css" />
+    <link rel="stylesheet" href="../lib/css/configurator.style.css" />
+
+    <title>Конфигуратор | UPGRADE</title>
+</head>
+<body>
+    <div class="container-fluid p-0 m-0">
+        <div id="header" class="row container-fluid p-0 m-0">
+            <div class="col navbar-minimal row">
+                <div class="col-2 brand">
+                    <a href="../index.html"><img src="../lib/img/brand/only-head.brand.svg" alt="" height="30px"/></a>
+                </div>
+                <a href="../market/index.html" class="col"><div><img src="../lib/img/header_n_footer/menu.svg" alt="Кат"></div></a>
+                <a href="../configurator/index.html" class="col"><div><img src="../lib/img/header_n_footer/settings.svg" alt="Конф"></div></a>
+                <a href="../search/index.html" class="col"><div><img src="../lib/img/header_n_footer/loupe.svg" alt="П"></div></a>
+                <div class="col-1 cart">
+                    <a href="../cart/index.html"><img src="../lib/img/icons/cart.svg" alt="" height="100%"></a>
+                </div>
+            </div>
+
+            <div class="col navbar-default row">
+                <div class="col-3 brand">
+                    <a href="../index.html"><img src="../lib/img/brand/full.brand.svg" alt="" height="50px"/></a>
+                </div>
+                <a href="../market/index.html" class="col"><div>Каталог</div></a>
+                <a href="../configurator/index.html" class="col"><div>Конфигуратор</div></a>
+                <a href="../search/index.html" class="col"><div>Поиск</div></a>
+                <div class="col-1 cart">
+                    <a href="../cart/index.html"><img src="../lib/img/icons/cart.svg" alt="" height="100%"></a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg" id="content">
+            
+            <div class="row row-cols-1">
+
+                <div class="col row" id="id_link">
+                    <div class="col">
+                        <img src="../lib/img/market/computer.svg" alt="" />
+                    </div>
+                    <div class="col" style="border-left: #797979 solid 3px;">
+                        <div>Итоговые характеристики</div>
+                        <div class="item-proc">
+                            <span>Процессор: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-motherboad">
+                            <span>Материнская плата: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-case">
+                            <span>Корпус: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-videocard">
+                            <span>Видеокарта: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-cooler">
+                            <span>Охлаждение: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-ram">
+                            <span>Оперативная память: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-storage">
+                            <span>Хранение данных: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-power">
+                            <span>Блок питания: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-soundcard">
+                            <span>Звуковая карта: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-screen">
+                            <span>Экран: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-keyboard">
+                            <span>Клавиатура: </span>
+                            <span>...</span>
+                        </div>
+                        <div class="item-mouse">
+                            <span>Мышь: </span>
+                            <span>...</span>
+                        </div>
+                        <div>
+                            <span id="item-desc-price" class="item-price">99 956</span>
+                            <button class="item-buy">Добавить +</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col row row-cols-3" style="border-top: #797979 solid 3px;">
+                    <div class="col item-proc">
+                        <div>Процессор</div>
+                        <img src="/lib/img/configurator/proc.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-motherboad">
+                        <div>Меатеринская плата</div>
+                        <img src="/lib/img/configurator/motherboard.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-case">
+                        <div>Корпус</div>
+                        <img src="/lib/img/configurator/case.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-videocard">
+                        <div>Видеокарта</div>
+                        <img src="/lib/img/configurator/videocard.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-cooler">
+                        <div>Охлаждение</div>
+                        <img src="/lib/img/configurator/cooler.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-ram">
+                        <div>Оперативная память</div>
+                        <img src="/lib/img/configurator/ram.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-storage">
+                        <div>Хранилище данных</div>
+                        <img src="/lib/img/configurator/storage.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-power">
+                        <div>Блок питания</div>
+                        <img src="/lib/img/configurator/power.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-soundcard">
+                        <div>Звуковая карта</div>
+                        <img src="/lib/img/configurator/soundcard.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-screen">
+                        <div>Монитор</div>
+                        <img src="/lib/img/configurator/screen.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-keyboard">
+                        <div>Клавиатура</div>
+                        <img src="/lib/img/configurator/keyboard.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+
+                    <div class="col item-mouse">
+                        <div>Мышь</div>
+                        <img src="/lib/img/configurator/mouse.svg" alt="Картинка" />
+                        <div>...наименование...</div>
+                        <div>...характеристики...</div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+        <div id="footer" class="row row-cols-1 row-cols-lg-3">
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>Магазин</h3></div>
+                <div class="col"><a href="../market/catalog/index.html?type=smartphone">Смартфоны</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=notebook">Ноутбуки</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=computer">Персональные компьютеры</a></div>
+            </div>
+            <hr class="footer-minimal" />
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>О персональных компьютерах</h3></div>
+                <div class="col"><a href="../configurator/index.html">Конфигуратор</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=computer">Готовые решения</a></div>
+                <div class="col"><a href="../market/catalog/index.html?type=accessories">Аксессуары</a></div>
+            </div>
+            <hr class="footer-minimal" />
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>Информация</h3></div>
+                <div class="col"><a href="../events/index.html">Акции</a></div>
+                <div class="col"><a href="../about/index.html">О нас</a></div>
+                <div class="col"><a target="_blank" href="https://github.com/Cory7666/web-design" class="brand-github">GitHUB</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

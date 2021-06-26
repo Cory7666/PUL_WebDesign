@@ -1,10 +1,85 @@
+@font-face {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Exo 2'), url('/lib/fonts/Exo2.ttf') format('ttf');
+}
+
+@font-face {
+	font-family: 'Exo 2';
+	font-style: italic;
+	font-weight: normal;
+	src: local('Exo 2'), url('/lib/fonts/Exo2-Italic.ttf') format('ttf');
+}
+
 body {
     background-color: #181818;
 
     color: #797979;
+
+    font-family: 'Exo 2', Arial, sans-serif;
 }
 
 a {
     color: #797979;
     text-decoration: none;
+	transition: color 0.5s;
+}
+
+a:hover {
+    color: #999;
+    text-decoration: underline 1px;
+}
+
+
+
+
+
+
+
+#content img.item-img
+{
+    max-width: 100%;
+    max-height: 300px;
+}
+#content .item-price::after
+{
+	content: " ₽";
+}
+#content div.item-desc-short
+{
+    font-size: 110%;
+}
+#content .item-spec-ram::after
+{
+	content: " ГБ";
+}
+
+.item-spec-accum-a::after
+{
+	content: " mAh";
+}
+.item-spec-accum-w::after
+{
+	content: " Wh";
+}
+.item-spec-storage-hdd::before
+{
+	content: "HDD ";
+}
+.item-spec-storage-ssd::before
+{
+	content: "SSD ";
+}
+.item-spec-storage-nvme::before
+{
+	content: "NVME ";
+}
+.item-spec-storage
+{
+	margin-left: 5%;
+}
+.item-spec-storage-size::after
+{
+	content: " ГБ";
 }

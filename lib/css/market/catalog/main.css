@@ -1,0 +1,8 @@
+#content > div:first-child > a
+{
+    box-shadow: inset 0 0 70px -120px rgba(3,218,195,1);
+    transition: box-shadow 0.4s;
+}
+#content > div:first-child > a:hover {
+    box-shadow: inset 0 -155px 70px -120px rgba(3,218,195,1);
+}

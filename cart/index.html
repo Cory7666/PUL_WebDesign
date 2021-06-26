@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/lib/css/reset.css" />
+
+    <!-- Иконки сайта -->
+    <link rel="icon" href="/lib/img/brand/x16.png"  sizes="16x16"   type="image/png" />
+    <link rel="icon" href="/lib/img/brand/x32.png"  sizes="32x32"   type="image/png" />
+    <link rel="icon" href="/lib/img/brand/x64.png"  sizes="64x64"   type="image/png" />
+    <link rel="icon" href="/lib/img/brand/x128.png" sizes="128x128" type="image/png" />
+    <link rel="icon" href="/lib/img/brand/favicon.brand.svg"        type="image/svg+xml" />
+
+    <!-- BOOTSTRAP v5.0 -->
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Собственные стили -->
+    <link rel="stylesheet" href="/lib/css/style.main.css"   />
+    <link rel="stylesheet" href="/lib/css/header.style.css" />
+    <link rel="stylesheet" href="/lib/css/footer.style.css" />
+    <link rel="stylesheet" href="/lib/css/cart.style.css" />
+
+
+    <title>Корзина</title>
+
+    <script>
+
+        var cart_list = [
+            {
+                "name": "Huawei Mate 40 Pro",
+                "price": 89_999,
+                "img": "/goods/cat0-item02/21.png",
+                "link": "/"
+            },
+            {
+                "name": "HP OMEN 15-ek1004ur",
+                "price": 139_999,
+                "img": "/goods/cat1-item01/11.png",
+                "link": "/"
+            },
+            {
+                "name": "DEXP Jupiter P346",
+                "price": 91_999,
+                "img": "/goods/cat2-item03/31.png",
+                "link": "/"
+            }
+        ];
+        
+        function g()
+        {
+            let link_v = document.getElementById("cart-list");
+            var sum = 0;
+
+            link_v.innerHTML = "";
+
+            function f(elem, index)
+            {
+                link_v.innerHTML += `
+                <div class="col cart-elem" data-num="${index}">
+                    <div class="row row-cols-2">
+                        <div class="col col-4"><a href=""><img src="${elem["img"]}" alt="Картинка" /></a></div>
+                        <div class="col">
+                            <div>
+                                <span class="price">${elem["price"]}</span>
+                                <span class="name"><a href="${elem["link"]}">${elem["name"]}</a></span>
+                            </div>
+                            <button onclick="handler1(${index})">Удалить -</button>
+                        </div>
+                    </div>
+                </div>
+                `;
+                sum += elem["price"];
+            }
+
+            cart_list.forEach(f);
+
+            document.getElementById("cart-result").innerHTML = `
+            <div>Всего: <span class="price">${sum}</span></div>
+            <div><button>Оформить заказ</button></div>
+            `;
+        }
+
+        document.addEventListener("DOMContentLoaded", g);
+
+        function handler1 (index)
+        {
+            cart_list.splice(index, 1);
+            console.log(cart_list);
+            g();
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="container-fluid p-0 m-0">
+        <div id="header" class="row container-fluid p-0 m-0">
+            <div class="col navbar-minimal row">
+                <div class="col-2 brand">
+                    <a href="/"><img src="/lib/img/brand/only-head.brand.svg" alt="" height="30px"/></a>
+                </div>
+                <a href="/market/" class="col"><div>Кат</div></a>
+                <a href="/market/" class="col"><div>Конф</div></a>
+                <a href="/search/" class="col"><div>П</div></a>
+                <div class="col-1 cart">
+                    <img src="/lib/img/icons/cart.svg" alt="" height="100%">
+                </div>
+            </div>
+
+            <div class="col navbar-default row">
+                <div class="col-3 brand">
+                    <a href="/"><img src="/lib/img/brand/full.brand.svg" alt="" height="50px"/></a>
+                </div>
+                <a href="/market/" class="col"><div>Категории</div></a>
+                <a href="/market/" class="col"><div>Конфигуратор</div></a>
+                <a href="/search/" class="col"><div>Поиск</div></a>
+                <div class="col-1 cart">
+                    <img src="/lib/img/icons/cart.svg" alt="" height="100%">
+                </div>
+            </div>
+        </div>
+        <div class="container-lg" id="content">
+            
+            <div id="cart-list" class="row row-cols-1">
+
+            </div>
+
+            <div id="cart-result">
+                
+            </div>
+            
+        </div>
+        <div id="footer" class="row row-cols-1 row-cols-lg-3">
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>Магазин</h3></div>
+                <div class="col"><a href="/market/smartphones">Смартфоны</a></div>
+                <div class="col"><a href="/market/notebooks">Ноутбуки</a></div>
+                <div class="col"><a href="/market/computers">Персональные компьютеры</a></div>
+            </div>
+            <hr class="footer-minimal" />
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>О персональных компьютерах</h3></div>
+                <div class="col"><a href="/configurator">Конфигуратор</a></div>
+                <div class="col"><a href="/market/computers">Готовые решения</a></div>
+                <div class="col"><a href="/market/accessories">Аксессуары</a></div>
+            </div>
+            <hr class="footer-minimal" />
+            <div class="col row row-cols-1">
+                <div class="col footer-minimal"><h3>Информация</h3></div>
+                <div class="col"><a href="/events">Акции</a></div>
+                <div class="col"><a href="/about">О нас</a></div>
+                <div class="col"><a target="_blank" href="https://github.com/Cory7666/web-design">GitHUB</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

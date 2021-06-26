@@ -4,6 +4,8 @@
     text-shadow: black 0 0 5px;
     
     border-bottom: 3px #797979 solid;
+
+    clear: both;
 }
 
 #header .brand {
@@ -14,7 +16,7 @@
     text-align: right;
 }
 
-#header .navbar-default > div:nth-child(2) {
+/*#header .navbar-default > div:nth-child(2) {
      background: rgb(139,16,223);
      background: linear-gradient(0deg, rgba(139,16,223,1) 0%, rgba(0,212,255,0) 100%); 
 }
@@ -28,6 +30,53 @@
     background: rgb(255,250,4);
     background: linear-gradient(0deg, rgba(255,250,4,1) 0%, rgba(0,212,255,0) 100%); 
 }
+*/
+
+#header .navbar-default > :nth-child(2) {
+    box-shadow: inset 0 0 70px -120px rgba(139,16,223,1);
+
+    transition: box-shadow 0.4s;
+}
+
+#header .navbar-default > :nth-child(2):hover {
+    box-shadow: inset 0 -102px 70px -120px rgba(139,16,223,1);
+}
+
+
+
+#header .navbar-default > :nth-child(3) {
+    box-shadow: inset 0 0 70px -120px rgba(3,218,195,1);
+
+    transition: box-shadow 1s;
+}
+
+#header .navbar-default > :nth-child(3):hover {
+    box-shadow: inset 0 -102px 70px -120px rgba(3,218,195,1);
+}
+
+
+
+#header .navbar-default > :nth-child(4) {
+    box-shadow: inset 0 0 70px -120px rgba(255,250,4,1);
+
+    transition: box-shadow 1s;
+}
+
+#header .navbar-default > :nth-child(4):hover {
+    box-shadow: inset 0 -102px 70px -120px rgba(255,250,4,1);
+}
+
+
+.navbar-minimal > a:nth-child(2) > div:nth-child(1) > img:nth-child(1),
+.navbar-minimal > a:nth-child(3) > div:nth-child(1) > img:nth-child(1),
+.navbar-minimal > a:nth-child(4) > div:nth-child(1) > img:nth-child(1)
+{
+    max-width: 100%;
+    height: 30px;
+}
+
+
+
 
 .navbar-default, .navbar-minimal {
     margin: 0;
